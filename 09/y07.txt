@@ -1,0 +1,11 @@
+int i; double x;
+int f(int a, int b) { ... }
+
+Legal:
+(a) i = f(83, 12);
+(e) f(83, 12);
+
+Illegal:
+(b) x = f(83, 12);
+(c) i = f(3.15, 9.28);
+(d) x = f(3.15, 9.28);

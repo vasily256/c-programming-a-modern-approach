@@ -1,0 +1,4 @@
+d = i + f;
+
+i + f; // int -> float
+d = i + f; // float - > double

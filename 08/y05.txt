@@ -1,0 +1,2 @@
+#include <bool.h>
+const bool weekend[7] = {[0] = true, [7] = false};

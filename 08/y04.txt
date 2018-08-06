@@ -1,0 +1,2 @@
+#include <bool.h>
+const bool weekend[] = {true, false, false, false, false, false, true};

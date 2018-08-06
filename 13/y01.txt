@@ -1,0 +1,11 @@
+(a) printf("%c", '\n'); // Rigth
+(b) printf("%c", "\n"); // Wrong. Character is expected but "\n" is a string
+(c) printf("%s", '\n'); // Wrong. String is expected but '\n' is a character
+(d) printf("%s", "\n"); // Right
+(e) printf('\n');       // Wrong. '\n' can not be address of string
+(f) printf("\n");       // Right
+(g) putchar ('\n');     // Right
+(h) putchar("\n");      // Wrong. Address of string can not be an argument
+(i) puts('\n');         // Wrong. '\n' can not be address of string
+(j) puts("\n");         // Right. But additional new line character is printed
+(k) puts("");           // Right. But additional new line character is printed

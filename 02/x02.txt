@@ -1,0 +1,8 @@
+a)
+Directives: "#include"
+statements: "printf(...)", "return 0"
+
+b)
+Parkinson's Law:
+Work expans so as to fill the nime
+available for its comletion

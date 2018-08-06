@@ -1,0 +1,10 @@
+int i, p = q = &i
+(a) p = i   -+
+(b) p* = &i -+
+(c) &p = q  -
+(d) p = &q  -+
+(e) p = *&q +
+(f) p = q   +
+(g) p = *q  -+
+(h) *p = q  -+
+(i) *p = *q +

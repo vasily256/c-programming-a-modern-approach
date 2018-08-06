@@ -1,0 +1,8 @@
+char str[N];
+
+(a) *str = 0;
+(b) str[0] = '\0';
+(c) strcpy(str, "");
+(d) strcat(str, "");
+
+Statement (d) is not equivalent to statements (a), (b), (c)

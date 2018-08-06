@@ -1,0 +1,10 @@
+p points to i;
+
+Aliases for i:
+(a) *p  +
+(b) &p  -
+(c) *&p -
+(d) &*p -
+(e) *i  -
+(g) *&i +
+(h) &*i +- 

@@ -1,0 +1,9 @@
+int *high, *low, *middle;
+
+Illegal version:
+
+middle = (low + high) / 2;
+
+Legal version:
+
+middle = low + (low - high) / 2;

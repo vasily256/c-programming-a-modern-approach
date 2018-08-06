@@ -1,0 +1,2 @@
+One main function can contain infinite set variables named i.
+

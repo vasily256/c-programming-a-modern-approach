@@ -1,0 +1,6 @@
+char *p = "abc";
+
+(a) putchar(p); // Illegal. Char instead of pointer is expected.
+(b) putchar(*p);// Legal. Output: 'a'
+(c) puts(p);    // Legal. Output: 'abc'
+(d) puts(*p);   // Illegal. Pointer is expected

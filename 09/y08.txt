@@ -1,0 +1,4 @@
++ (a) void f(double x);
++ (b) void f(double);
+- (c) void f(x);
+- (d) f(double x);
