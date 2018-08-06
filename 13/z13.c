@@ -3,23 +3,25 @@
 #define N 80
 
 void encrypt(char *message, int shift);
+int read_line(char str[], int n);
 
 int main(void)
 {
-    int n, i, j;
-    char ch[N];
+    int shift, i, j;
+    char str[N + 1];
     
     printf("Enter a message to be encrypted: ");
-    for (i = 0; i < N; i++) {
-        ch[i] = getchar();
-        if (ch[i] == '\n') {
-            break;
-        }
-    }
-    
+    read_line(str, N);
     printf("Enter shift amount: ");
-    scanf("%d", &n);
+    scanf("%d", &shift);
     
+    printf("Encrypted message: %s\n", encrypt(str, shift));
+    
+    return 0;
+}
+
+void encrypt(char *message, int shift)
+{
     for (j = 0; j < i; j++) {
         if (ch[j] >= 'a' && ch[j] <= 'z') {
             ch[j] = ((ch[j] - 'a') + n) % 26 + 'a';
@@ -27,11 +29,16 @@ int main(void)
             ch[j] = ((ch[j] - 'A') + n) % 26 + 'A';
         }
     }
-    
-    printf("Encrypted message: ");
-    for (j = 0; j <= i; j++) {
-        putchar(ch[j]);
-    }
-    
-    return 0;
+}
+
+int read_line(char str[], int n)
+{
+    int ch, i = 0;
+
+    while ((ch = getchar()) != '\n')
+        if (i < n)
+            str[i++] = ch;
+    str[i] = '\0';
+
+    return i;
 }
