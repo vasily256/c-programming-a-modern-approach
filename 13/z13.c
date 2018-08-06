@@ -2,6 +2,8 @@
 
 #define N 80
 
+void encrypt(char *message, int shift);
+
 int main(void)
 {
     int n, i, j;
