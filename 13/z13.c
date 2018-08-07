@@ -7,26 +7,27 @@ int read_line(char str[], int n);
 
 int main(void)
 {
-    int shift, i, j;
-    char str[N + 1];
+    int shift;
+    char message[N + 1];
     
     printf("Enter a message to be encrypted: ");
-    read_line(str, N);
+    read_line(message, N);
     printf("Enter shift amount: ");
     scanf("%d", &shift);
-    
-    printf("Encrypted message: %s\n", encrypt(str, shift));
+
+    encrypt(message, shift); 
+    printf("Encrypted message: %s\n", message);
     
     return 0;
 }
 
 void encrypt(char *message, int shift)
 {
-    for (j = 0; j < i; j++) {
-        if (ch[j] >= 'a' && ch[j] <= 'z') {
-            ch[j] = ((ch[j] - 'a') + n) % 26 + 'a';
-        } else if (ch[j] >= 'A' && ch[j] <= 'Z') {
-            ch[j] = ((ch[j] - 'A') + n) % 26 + 'A';
+    for (; *message; message++) {
+        if (*message >= 'a' && *message <= 'z') {
+            *message = ((*message - 'a') + shift) % 26 + 'a';
+        } else if (*message >= 'A' && *message <= 'Z') {
+            *message = ((*message - 'A') + shift) % 26 + 'A';
         }
     }
 }
