@@ -5,7 +5,7 @@
 
 #define STR_LEN 50
 
-bool is_palindrome(char *message);
+bool is_palindrome(const char *message);
 int read_line(char str[], int n);
 
 int main(void)
@@ -23,11 +23,12 @@ int main(void)
     return 0;
 }
 
-bool is_palindrome(char *message)
+bool is_palindrome(const char *message)
 {
-    char *ptr = message + strlen(message) - 1;
+    const char *ptr = message + strlen(message) - 1;
 
     for (;;) {
+        //skip non-alphabet characters
         for (; !isalpha(*message); message++);
         for (; !isalpha(*ptr); ptr--);
         if (message >= ptr)
