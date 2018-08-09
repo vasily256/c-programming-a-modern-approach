@@ -28,7 +28,7 @@ int main(void)
 
 bool is_palindrome(int n, char a[])
 {
-    for (int i = 0; i <= n--; i++)
+    for (int i = 0; i < n--; i++)
         if (a[i] != a[n])
             return false;
 

@@ -26,7 +26,7 @@ int main(void)
 
 bool is_palindrome(char *str, char *ptr)
 {
-    while (str <= ptr)
+    while (str < ptr)
         if (*str++ != *--ptr)
             return false;
 
