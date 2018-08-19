@@ -13,13 +13,13 @@ int main(void)
     printf("Enter x and y values: ");
     scanf("%lf %lf", &x, &y);
 
-    printf("(a) AVG(x,y) / AVG(x,y):\n")
-    printf("By original definition: %d\n", AVG(x,y) / AVG(x,y));
-    printf("By fixed definition: %d\n", AVG_F(x,y) / AVG_F(x,y));
+    printf("\n(a) AVG(x,y) / AVG(x,y):\n");
+    printf("By original definition: %g\n", AVG(x,y) / AVG(x,y));
+    printf("By fixed definition: %g\n", AVG_F(x,y) / AVG_F(x,y));
 
-    printf("(a) AREA(x,y) / AREA(x,y):\n");
-    printf("By original definition: %d\n", AREA(x,y) / AREA(x,y));
-    printf("By fixed definition: %d\n", AREA_F(x,y) / AREA_F(x,y));
+    printf("\n(a) AREA(x,y) / AREA(x,y):\n");
+    printf("By original definition: %g\n", AREA(x,y) / AREA(x,y));
+    printf("By fixed definition: %g\n", AREA_F(x,y) / AREA_F(x,y));
 
     return 0;
 }
