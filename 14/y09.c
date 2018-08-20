@@ -5,7 +5,7 @@
 #define MEDIAN(x,y,z) ((x) < (y) ? \
         ((z) < (x) ? (x) : (y) < (z) ? (y) : (z)) : \
         ((z) < (y) ? (y) : (x) < (z) ? (x) : (z)))
-                      
+#define POLYNOMIAL(x) (x*(x*(x*(x*(x*3+2)-5)-1)+7)-6)
 
 int main(void)
 {
@@ -21,6 +21,8 @@ int main(void)
         printf("don't fall between 0 and (%d - 1)\n", n);
 
     printf("(b) Median of %d, %d and %d is %d\n", x, y, z, MEDIAN(x,y,z));
+
+    printf("(c) Polynomial of %d is %d\n", x, POLYNOMIAL(x));
 
     return 0;
 }
