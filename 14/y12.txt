@@ -1,0 +1,7 @@
+#define M 10
+
+(a) #if M
+(b) #ifdef M
+(c) #ifndef M       //failed
+(d) #if defined(M)
+(e) #if !defined(M) //failed
