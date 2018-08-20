@@ -1,7 +1,7 @@
 #include <stdio.h> 
 
 #define AVG(x,y) (x+y)/2
-#define AVG_F(x,y) ((x+y)/2)
+#define AVG_F(x,y) (((x)+(y))/2)
 
 #define AREA(x,y) (x)*(y)
 #define AREA_F(x,y) ((x)*(y))
