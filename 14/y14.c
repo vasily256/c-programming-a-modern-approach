@@ -17,7 +17,7 @@ int main(void)
 
     i = 10 * INC(j);
     i = SUB(j, k);
-    i = SQR(SQR(J));
+    i = SQR(SQR(j));
     i = CUBE(j);
     i = M1(j, k);
     puts(M2(i, j));
