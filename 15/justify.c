@@ -10,7 +10,6 @@
 /* justify.c (Chapter 15, page 363) */
 /* Formats a file of text */
 
-#include <string.h>
 #include "line.h"
 #include "word.h"
 
