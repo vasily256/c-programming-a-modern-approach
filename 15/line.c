@@ -48,15 +48,31 @@ void write_line(void)
   int extra_spaces, spaces_to_insert, i, j;
 
   extra_spaces = MAX_LINE_LEN - line_len;
+
+  int num_space[extra_spaces];
+  int *ptr1 = num_space, *ptr2 = num_space + extra_spaces + 1;
+
+  for (;;) {
+    spaces_to_insert = extra_spaces / (num_words - 1);
+    extra_spaces -= spaces_to_insert;
+    num_words--;
+    *ptr1++ = spaces_to_insert;
+
+    if (ptr1 >= ptr2)
+        break;
+
+    spaces_to_insert = extra_spaces / (num_words - 1);
+    extra_spaces -= spaces_to_insert;
+    num_words--;
+    *ptr2-- = spaces_to_insert;
+  }
+
   for (i = 0; i < line_len; i++) {
     if (line[i] != ' ')
       putchar(line[i]);
     else {
-      spaces_to_insert = extra_spaces / (num_words - 1);
       for (j = 1; j <= spaces_to_insert + 1; j++)
         putchar(' ');
-      extra_spaces -= spaces_to_insert;
-      num_words--;
     }
   }
   putchar('\n');
