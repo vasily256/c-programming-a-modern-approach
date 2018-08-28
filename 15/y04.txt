@@ -1,5 +1,5 @@
 (a)
-Output if DEBUG is defined.
+Output if DEBUG is defined:
 Value of i: 1
 Value of j: 2
 Value of k: 3
