@@ -7,29 +7,28 @@
  * provided that this copyright notice is retained.      *
  *********************************************************/
 
-/* word.c (Chapter 15, page 363) */
+/* qsort.c (Chapter 9, page 207) */
+/* Sorts an array of integers using Quicksort algorithm */
 
 #include <stdio.h>
-#include "word.h"
+#include "quicksort.h"
 
-int read_char(void)
+#define N 10
+
+int main(void)
 {
-  int ch = getchar();
+  int a[N], i;
 
-  return (ch == '\n' || ch == '\t') ? ' ' : ch;
-}
+  printf("Enter %d numbers to be sorted: ", N);
+  for (i = 0; i < N; i++)
+    scanf("%d", &a[i]);
 
-int read_word(char *word, int len)
-{
-  int ch, pos = 0;
+  quicksort(a, 0, N - 1);
 
-  while ((ch = read_char()) == ' ')
-    ;
-  while (ch != ' ' && ch != EOF) {
-    if (pos < len)
-      word[pos++] = ch;
-    ch = read_char();
-  }
-  word[pos] = '\0';
-  return pos;
+  printf("In sorted order: ");
+  for (i = 0; i < N; i++)
+    printf("%d ", a[i]);
+  printf("\n");
+
+  return 0;
 }
