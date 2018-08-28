@@ -19,6 +19,7 @@ int read_char(void)
   return (ch == '\n' || ch == '\t') ? ' ' : ch;
 }
 
+//  Modified function (programming project 2)
 int read_word(char *word, int len)
 {
   int ch, pos = 0;
@@ -30,6 +31,8 @@ int read_word(char *word, int len)
       word[pos++] = ch;
     ch = read_char();
   }
+  if (pos == len)
+    word[pos-1] = '*';    //  Added statement
   word[pos] = '\0';
   return pos;
 }

@@ -43,7 +43,7 @@ int space_remaining(void)
   return MAX_LINE_LEN - line_len;
 }
 
-//  Added new function
+//  Added new function (programming prodect 1)
 int spaces_to_insert(int *num_words, int *extra_spaces)
 {
   int spaces = *extra_spaces / (*num_words - 1);
@@ -52,7 +52,7 @@ int spaces_to_insert(int *num_words, int *extra_spaces)
   return spaces;
 }
 
-//  Modified function
+//  Modified function (programming prodect 1)
 void write_line(void)
 {
   int extra_spaces, i, j, k = 0;

@@ -7,31 +7,29 @@
  * provided that this copyright notice is retained.      *
  *********************************************************/
 
-/* justify.c (Chapter 15, page 363) */
-/* Formats a file of text */
+/* word.c (Chapter 15, page 363) */
 
-#include "line.h"
+#include <stdio.h>
 #include "word.h"
 
-#define MAX_WORD_LEN 20
-
-//  Modified function (programming project 2)
-int main(void)
+int read_char(void)
 {
-  char word[MAX_WORD_LEN+2];
-  int word_len;
+  int ch = getchar();
 
-  clear_line();
-  for (;;) {
-    word_len = read_word(word, MAX_WORD_LEN+1);
-    if (word_len == 0) {
-      flush_line();
-      return 0;
-    }
-    if (word_len + 1 > space_remaining()) {
-      write_line();
-      clear_line();
-    }
-    add_word(word);
+  return (ch == '\n' || ch == '\t') ? ' ' : ch;
+}
+
+int read_word(char *word, int len)
+{
+  int ch, pos = 0;
+
+  while ((ch = read_char()) == ' ')
+    ;
+  while (ch != ' ' && ch != EOF) {
+    if (pos < len)
+      word[pos++] = ch;
+    ch = read_char();
   }
+  word[pos] = '\0';
+  return pos;
 }
