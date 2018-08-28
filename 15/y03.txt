@@ -1,0 +1,1 @@
+If file (#include "file") doesn't exist in current path preprocessor will check appropriate system header.
