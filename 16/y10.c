@@ -24,22 +24,24 @@ int main(void)
     printf("Enter offset values (x y): ");
     scanf("%d %d", &x, &y);
 
-    printf("Area: %d\n", area(r));
+    printf("\tArea: %d\n", area(r));
 
-    printf("Point is%s in rectangle\n", is_inner(r, p) ? "" : " not");
+    printf("\tPoint is%s in rectangle\n", is_inner(r, p) ? "" : " not");
 
     r = move(r, x, y);
-    printf("New coordinates: (%d, %d), (%d, %d)\n",
+    printf("\tNew coordinates: (%d, %d), (%d, %d)\n",
             r.upper_left.x, r.upper_left.y, r.lower_right.x, r.lower_right.y);
 
     return 0;
 }
 
+// (a)
 int area(struct rectangle r)
 {
     return (r.upper_left.x - r.lower_right.x) * (r.lower_right.y - r.upper_left.y);
 }
 
+// (b)
 struct point center(struct rectangle r)
 {
     struct point c;
@@ -50,6 +52,7 @@ struct point center(struct rectangle r)
     return c;
 }
 
+// (c)
 struct rectangle move(struct rectangle r, int x, int y)
 {
     r.upper_left.x += x;
@@ -60,15 +63,16 @@ struct rectangle move(struct rectangle r, int x, int y)
     return r;
 }
 
+// (d)
 bool is_inner(struct rectangle r, struct point p)
 {
-    if (r.upper_left.x > p.x)
+    if (r.upper_left.x >= p.x)
         return false;
-    else if (r.upper_left.y < p.y)
+    else if (r.upper_left.y <= p.y)
         return false;
-    else if (r.lower_right.x < p.x)
+    else if (r.lower_right.x <= p.x)
         return false;
-    else if (r.lower_right.y > p.y)
+    else if (r.lower_right.y >= p.y)
         return false;
     else
         return true;
