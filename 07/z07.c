@@ -7,8 +7,8 @@ int main(void)
     int num1, denom1, num2, denom2, result_num, result_denom;
     char ch;
     
-    printf("Enter two fractions separated by +, -, *, or /: ");
-    scanf("%d/%d%c%d/%d", &num1, &denom1, &ch, &num2, &denom2);
+    printf("Enter two fractions separated by +, -, *, or /:\n");
+    scanf("%d/%d %c %d/%d", &num1, &denom1, &ch, &num2, &denom2);
     
     switch (ch) {
         case '+':
@@ -29,7 +29,7 @@ int main(void)
             break;
     }
     
-    printf("The sum is %d/%d\n", result_num, result_denom);
+    printf("= %d/%d\n", result_num, result_denom);
     
     return 0;
 }
