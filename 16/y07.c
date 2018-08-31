@@ -7,7 +7,7 @@ struct fraction {
 
 struct fraction reduce(struct fraction f);
 
-// Adds, substracts, multiplies, divides two fractions
+// Adds (b), substracts (c), multiplies (d), divides (e) two fractions
 
 int main(void)
 {
