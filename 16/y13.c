@@ -1,9 +1,3 @@
-#include <stdio.h>
-#include <stdbool.h>
-#include <ctype.h>
-#include <string.h>
-#include <stdlib.h>
-
 #define RECTANGLE 0
 #define CIRCLE 1
 
