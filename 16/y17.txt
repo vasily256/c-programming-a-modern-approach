@@ -1,0 +1,8 @@
+enum {FALSE, TRUE} b;
+int i;
+
+(a) b = FALSE;      - legal, safe
+(b) b = i;          - legal
+(c) b++;            - legal
+(d) i = b;          - legal, safe
+(e) i = 2 * b + 1;  - legal, safe
