@@ -1,0 +1,1 @@
+4 (char b[4]) + 8 (double c) + 4 (int d) = 16 bytes
