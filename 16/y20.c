@@ -2,7 +2,7 @@
 
 int main(void)
 {
-    int x = 0, y = 0, command;
+    int x = 0, y = 0;
     enum {NORTH, SOUTH, EAST, WEST} direction;
 
     for (;;) { 
