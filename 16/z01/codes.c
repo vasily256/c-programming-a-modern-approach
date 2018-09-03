@@ -234,5 +234,7 @@ const struct dialing_code country_codes[] = {
     {381, "Yugoslavia (discontinued)"},
     {243, "Zaire"},
     {260, "Zambia"},
-    {263, "Zimbabwe"},
+    {263, "Zimbabwe"}
 };
+
+const int num_codes = (int) sizeof(country_codes) / sizeof(country_codes[0]);
