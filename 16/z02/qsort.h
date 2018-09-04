@@ -1,7 +1,7 @@
 #ifndef QSORT_H
 #define QSORT_H 
+#include "inventory.h"
 
-void quicksort(int a[], int low, int high);
-int split(int a[], int low, int high);
+void quicksort(struct part a[], int low, int high);
 
 #endif

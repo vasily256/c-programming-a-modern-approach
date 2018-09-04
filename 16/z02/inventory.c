@@ -12,16 +12,12 @@
 
 #include <stdio.h>
 #include "readline.h"
-#include "qsort.h"
+#include "qsort.h"     // added for ex.2 of ch.16
+#include "inventory.h" // added for ex.2 of ch.16
 
-#define NAME_LEN 25
 #define MAX_PARTS 100
 
-struct part {
-  int number;
-  char name[NAME_LEN+1];
-  int on_hand;
-} inventory[MAX_PARTS];
+struct part inventory[MAX_PARTS]; // modified for ex.2 of ch.16
 
 int num_parts = 0;   /* number of parts currently stored */
 
@@ -162,6 +158,7 @@ void print(void)
 {
   int i;
 
+  quicksort(inventory, 0, num_parts); // added for ex.2 of ch.16
   printf("Part Number   Part Name                  "
          "Quantity on Hand\n");
   for (i = 0; i < num_parts; i++)

@@ -13,7 +13,9 @@
 
 #include "qsort.h"
 
-void quicksort(int a[], int low, int high)
+int split(struct part a[], int low, int high);
+
+void quicksort(struct part a[], int low, int high)
 {
   int middle;
 
@@ -23,17 +25,17 @@ void quicksort(int a[], int low, int high)
   quicksort(a, middle + 1, high);
 }
 
-int split(int a[], int low, int high)
+int split(struct part a[], int low, int high)
 {
-  int part_element = a[low];
+  struct part part_element = a[low];
 
   for (;;) {
-    while (low < high && part_element <= a[high])
+    while (low < high && part_element.number <= a[high].number)
       high--;
     if (low >= high) break;
     a[low++] = a[high];
 
-    while (low < high && a[low] <= part_element)
+    while (low < high && a[low].number <= part_element.number)
       low++;
     if (low >= high) break;
     a[high--] = a[low];
