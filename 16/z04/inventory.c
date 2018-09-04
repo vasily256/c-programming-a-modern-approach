@@ -19,6 +19,7 @@
 struct part {
   int number;
   char name[NAME_LEN+1];
+  int price;
   int on_hand;
 } inventory[MAX_PARTS];
 
@@ -103,6 +104,8 @@ void insert(void)
   inventory[num_parts].number = part_number;
   printf("Enter part name: ");
   read_line(inventory[num_parts].name, NAME_LEN);
+  printf("Enter price: ");
+  scanf("%d", &inventory[num_parts].price);
   printf("Enter quantity on hand: ");
   scanf("%d", &inventory[num_parts].on_hand);
   num_parts++;
@@ -123,6 +126,7 @@ void search(void)
   i = find_part(number);
   if (i >= 0) {
     printf("Part name: %s\n", inventory[i].name);
+    printf("Price: %d\n", inventory[i].price);
     printf("Quantity on hand: %d\n", inventory[i].on_hand);
   } else
     printf("Part not found.\n");
@@ -137,15 +141,18 @@ void search(void)
  **********************************************************/
 void update(void)
 {
-  int i, number, change;
+  int i, number, change_quantity, change_price;
 
   printf("Enter part number: ");
   scanf("%d", &number);
   i = find_part(number);
   if (i >= 0) {
+    printf("Enter change in price: ");
+    scanf("%d", &change_price);
     printf("Enter change in quantity on hand: ");
-    scanf("%d", &change);
-    inventory[i].on_hand += change;
+    scanf("%d", &change_quantity);
+    inventory[i].price += change_price;
+    inventory[i].on_hand += change_quantity;
   } else
     printf("Part not found.\n");
 }
@@ -162,8 +169,8 @@ void print(void)
   int i;
 
   printf("Part Number   Part Name                  "
-         "Quantity on Hand\n");
+         "   Price        Quantity on Hand\n");
   for (i = 0; i < num_parts; i++)
-    printf("%7d       %-25s%11d\n", inventory[i].number,
-           inventory[i].name, inventory[i].on_hand);
+    printf("%7d       %-25s%10d      %11d\n", inventory[i].number,
+           inventory[i].name,  inventory[i].price, inventory[i].on_hand);
 }
