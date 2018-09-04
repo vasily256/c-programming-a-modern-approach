@@ -11,15 +11,16 @@
 /* Maintains a parts database (array version) */
 
 #include <stdio.h>
+#include <stdbool.h>   // added for ex.2 of ch.16
 #include "readline.h"
 #include "qsort.h"     // added for ex.2 of ch.16
 #include "inventory.h" // added for ex.2 of ch.16
 
 #define MAX_PARTS 100
 
-struct part inventory[MAX_PARTS]; // modified for ex.2 of ch.16
-
+struct part inventory[MAX_PARTS]; // modified for ex.2 of ch.16 
 int num_parts = 0;   /* number of parts currently stored */
+bool is_sorted = false; // added for ex.2 of ch.16
 
 int find_part(int number);
 void insert(void);
@@ -103,6 +104,7 @@ void insert(void)
   printf("Enter quantity on hand: ");
   scanf("%d", &inventory[num_parts].on_hand);
   num_parts++;
+  is_sorted = false; // added for ex.2 of ch.16
 }
 
 /**********************************************************
@@ -158,7 +160,10 @@ void print(void)
 {
   int i;
 
-  quicksort(inventory, 0, num_parts); // added for ex.2 of ch.16
+  if (is_sorted == false) {                   // added for ex.2 of ch.16
+      quicksort(inventory, 0, num_parts - 1);
+      is_sorted = true;
+  }
   printf("Part Number   Part Name                  "
          "Quantity on Hand\n");
   for (i = 0; i < num_parts; i++)
