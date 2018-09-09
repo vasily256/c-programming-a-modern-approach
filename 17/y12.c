@@ -9,17 +9,13 @@ struct node {
 
 struct node *find_last(struct node *list, int n)
 {
-    struct node *ptr;
+    struct node *ptr = NULL;
 
-    for (ptr = list; list != NULL; list = list->next) {
+    for (; list != NULL; list = list->next)
         if (list->value == n)
             ptr = list;
-    }
 
-    if (list != NULL)
-        return ptr;
-    else
-        return NULL;
+    return ptr;
 }
 
 int main(void)
