@@ -1,0 +1,3 @@
+Output: 'Answer: 3'
+
+When n reaches 3 loop in function f1 stops and this value is returned to main function and then printed.
