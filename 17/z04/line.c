@@ -87,20 +87,23 @@ void write_line(void)
 {
   //printf("%s function called\n", __func__);
   int extra_spaces, spaces_to_insert, j;
+  int letters = 0; //
 
   extra_spaces = MAX_LINE_LEN - line_len;
+  printf("%2d %2d ", line_len, extra_spaces);//
   for (struct word *p = line; p != NULL; p = p->next) {
     printf("%s ", p->word);
-    //if (num_words - 1 == 0)
-    //  exit(EXIT_FAILURE);
+    letters += strlen(p->word);//
     if (num_words == 1)
       continue;
     spaces_to_insert = extra_spaces / (num_words - 1);
-    for (j = 1; j <= spaces_to_insert + 1; j++)
+    //printf("_%d", spaces_to_insert);
+    for (j = 1; j <= spaces_to_insert; j++)
       putchar(' ');
     extra_spaces -= spaces_to_insert;
     num_words--;
   }
+  printf(" %d", letters);
   putchar('\n');
   //printf("%s function returns\n", __func__);
 }
