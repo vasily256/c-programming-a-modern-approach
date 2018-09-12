@@ -23,7 +23,6 @@ int read_char(void)
 
 void read_word(char *word, int len)
 {
-  //printf("%s function called\n", __func__);
   int ch, pos = 0;
 
   while ((ch = read_char()) == ' ')
@@ -34,5 +33,4 @@ void read_word(char *word, int len)
     ch = read_char();
   }
   word[pos] = '\0';
-  //printf("%s function returns\n", __func__);
 }

@@ -14,13 +14,10 @@
 #include "line.h"
 #include "word.h"
 
-#include <stdio.h>
-
 #define MAX_WORD_LEN 20
 
 int main(void)
 {
-  //printf("%s function called\n", __func__);
   char word[MAX_WORD_LEN+2];
   int word_len;
 
@@ -30,7 +27,6 @@ int main(void)
     word_len = strlen(word);
     if (word_len == 0) {
       flush_line();
-      //printf("%s function returns\n", __func__);
       return 0;
     }
     if (word_len > MAX_WORD_LEN)

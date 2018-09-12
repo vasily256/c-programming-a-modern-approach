@@ -14,7 +14,7 @@
 #include <string.h>
 #include "line.h"
 
-#define MAX_LINE_LEN 10
+#define MAX_LINE_LEN 60
 
 struct word {
   char *word;
@@ -26,15 +26,12 @@ int num_words = 0;
 
 void exit_fail(void)
 {
-  //printf("%s function called\n", __func__);
     printf("malloc: allocation failed\n");
-  //printf("%s function returns\n", __func__);
     exit(EXIT_FAILURE);
 }
 
 void clear_line(void)
 {
-  //printf("%s function called\n", __func__);
   struct word *tmp_ptr;
 
   while (line != NULL) {
@@ -47,12 +44,10 @@ void clear_line(void)
 
   line_len = 0;
   num_words = 0;
-  //printf("%s function returns\n", __func__);
 }
 
 void add_word(const char *word)
 {
-  //printf("%s function called\n", __func__);
   struct word *p = malloc(sizeof(struct word));
   if (p == NULL)
     exit_fail();
@@ -73,47 +68,38 @@ void add_word(const char *word)
     line_len++;
   line_len += strlen(word);
   num_words++;
-  //printf("%s function returns\n", __func__);
 }
 
 int space_remaining(void)
 {
-  //printf("%s function called\n", __func__);
-  //printf("%s function returns\n", __func__);
   return MAX_LINE_LEN - line_len;
 }
 
 void write_line(void)
 {
-  //printf("%s function called\n", __func__);
   int extra_spaces, spaces_to_insert, j;
-  int letters = 0; //
 
   extra_spaces = MAX_LINE_LEN - line_len;
-  printf("%2d %2d ", line_len, extra_spaces);//
   for (struct word *p = line; p != NULL; p = p->next) {
-    printf("%s ", p->word);
-    letters += strlen(p->word);//
-    if (num_words == 1)
-      continue;
-    spaces_to_insert = extra_spaces / (num_words - 1);
-    //printf("_%d", spaces_to_insert);
-    for (j = 1; j <= spaces_to_insert; j++)
-      putchar(' ');
-    extra_spaces -= spaces_to_insert;
-    num_words--;
+    printf("%s", p->word);
+    if (num_words > 1) {
+      spaces_to_insert = extra_spaces / (num_words - 1);
+      for (j = 1; j <= spaces_to_insert + 1; j++)
+        putchar(' ');
+      extra_spaces -= spaces_to_insert;
+      num_words--;
+    }
   }
-  printf(" %d", letters);
   putchar('\n');
-  //printf("%s function returns\n", __func__);
 }
 
 void flush_line(void)
 {
-  //printf("%s function called\n", __func__);
   if (line_len > 0)
-    for (struct word *p = line; p != NULL; p = p->next)
-      printf("%s ", p->word);
+    for (struct word *p = line; p != NULL; p = p->next) {
+      printf("%s", p->word);
+      if (p->next != NULL)
+        putchar(' ');
+    }
   putchar('\n');
-  //printf("%s function returns\n", __func__);
 }
