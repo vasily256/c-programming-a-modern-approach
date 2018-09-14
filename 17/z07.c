@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <string.h>
 
 #define MAX_REMIND 50   /* maximum number of reminders */
@@ -23,6 +24,8 @@ struct vstring {
 };
 
 void Vread_line(struct vstring *vstr, int n);
+int Vstrcmp(const struct vstring *vstr1, const struct vstring *vstr2);
+void Vstrcpy(struct vstring *vstr1, const struct vstring *vstr2);
 
 int main(void)
 {
@@ -53,7 +56,7 @@ int main(void)
     for (j = num_remind; j > i; j--)
       reminders[j] = reminders[j-1];
 
-    reminders[i] = malloc(sizeof(struct vstring) + 2 + msg_str->len);
+    reminders[i] = malloc(sizeof(struct vstring) + day_str->len + msg_str->len);
     if (reminders[i] == NULL) {
       printf("-- No space left --\n");
       break;
@@ -103,4 +106,13 @@ int Vstrcmp(const struct vstring *vstr1, const struct vstring *vstr2)
       return 1;
     else
       return -1;
+}
+
+Vstrcpy(struct vstring *vstr1, const struct vstring *vstr2)
+{
+  int i;
+
+  for(i = 0; i < vstr1->len; i++)
+    vstr1->chars[i] = vstr2->chars[i];
+  vstr1->len = i;
 }
