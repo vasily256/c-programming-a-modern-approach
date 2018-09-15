@@ -1,0 +1,8 @@
+(a) static char **lookup(int level);
+    SC     TS   D
+(b) volatile unsigned long io_flags;
+    TQ       TS       TS   D
+(c) extern char *file_name[MAX_FILES], path[];
+    SC     TS   D                      D
+(d) static const char token_buf[] = "";
+    SC     TQ    TS   D           I
