@@ -1,0 +1,10 @@
+(a) char (*x[10])(int);
+    x is an array of ten pointers to function with one argument of type int.
+    Function returns an int value.
+
+(b) int (*x(int))[5];
+    x is an function witn one argument of type int.
+    Function returns a pointer to an array of length 5.
+
+(c) float *(*x(void))(int);
+(d) void (*x(int, void (*y)(int)))(int);
