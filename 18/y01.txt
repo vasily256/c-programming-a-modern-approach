@@ -1,3 +1,9 @@
+SC - storage class
+TS - type qualifier
+TS - type specifier
+D - declarator
+I - initializer
+
 (a) static char **lookup(int level);
     SC     TS   D
 (b) volatile unsigned long io_flags;
