@@ -1,0 +1,4 @@
+(a) false (if variable declared as static inside block it has block scope)
+(b) false (variable inside a function declared as extern has external linkage)
+(c) true
+(d) true
