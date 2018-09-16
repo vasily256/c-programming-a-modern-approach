@@ -1,10 +1,18 @@
 (a) char (*x[10])(int);
     x is an array of ten pointers to function with one argument of type int.
-    Function returns an int value.
+    Function returns an char value.
 
 (b) int (*x(int))[5];
-    x is an function witn one argument of type int.
-    Function returns a pointer to an array of length 5.
+    x is a function witn one argument of type int.
+    Function returns a pointer to an array of five int values.
 
 (c) float *(*x(void))(int);
+    x is a function without arguments.
+    Function returns a pointer to function that has argument
+    of type int and returns pointer to object of double type.
+
 (d) void (*x(int, void (*y)(int)))(int);
+    x is an function with two arguments: integer value
+    and pointer to function with argument of int type and no return value.
+    Function returns a pointer to function with integer argumemt and no return value.
+    
