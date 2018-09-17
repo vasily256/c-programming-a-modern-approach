@@ -29,6 +29,7 @@ int main(void)
         typedef void Fcn2(int);
         typedef Fcn2 *Fcn2_ptr;
         typedef Fcn_ptr Fcn_ptr_fcn2_ptr(int, Fcn2_ptr);
+        typedef Fcn_ptr_fcn2_ptr x;
     }
     return 0;
 }
