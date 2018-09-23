@@ -3,7 +3,7 @@
 #include <assert.h>
 #include "queue.h" 
 
-#define INIT_LEN 2
+#define INIT_LEN 10
 
 static int len = INIT_LEN;
 
@@ -24,8 +24,10 @@ Queue create(void)
 {
     Queue q = malloc(sizeof(struct queue_type));
     assert(q != NULL);
+
     q->contents = malloc(INIT_LEN * sizeof(Item));
     assert(q->contents != NULL);
+
     q->max_items = INIT_LEN;
     make_empty(q);
     return q;
@@ -51,6 +53,7 @@ static void expand(Queue q)
 {
     Item *tmp_ptr = realloc(q->contents, (len += INIT_LEN) * sizeof(Item));
     assert(tmp_ptr != NULL);
+
     q->contents = tmp_ptr;
     q->max_items = len;
 }
