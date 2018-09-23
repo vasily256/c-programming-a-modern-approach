@@ -1,11 +1,12 @@
-/* (a) int (*f(float (*)(long), char *))(double);
- *  f is a function with two arguments: pointer to
- *  function with long integer argument and float return value,
- *  pointer to character. Function f returns pointer to function
- *  that has double argumemt and integer return value.
- *  
- *  (b) i = (*(f(g, c)))(x);
- */
+/***************************************************************
+    (a) int (*f(float (*)(long), char *))(double);
+    f is a function with two arguments: pointer to
+    function with long integer argument and float return value,
+    pointer to character. Function f returns pointer to function
+    that has double argumemt and integer return value.
+
+    (b) i = (*(f(g, c)))(x);
+****************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>
