@@ -45,6 +45,7 @@ Queue create(void)
 {
     Queue q = malloc(sizeof(struct queue_type));
     assert(q != NULL);
+
     q->first = q->last = NULL;
     return q;
 }
