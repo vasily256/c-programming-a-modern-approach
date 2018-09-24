@@ -3,13 +3,11 @@
 #include <stdlib.h>
 #include "stack.h"
 
-struct node {
-    int data;
-    struct node *next;
-};
+#define SIZE 10
 
 struct stack_type {
-    struct node *top;
+    int contents[SIZE];
+    int top;
 };
 
 Stack create(void)
@@ -17,13 +15,11 @@ Stack create(void)
     Stack s = malloc(sizeof(struct stack_type));
     if (s == NULL)
         terminate("Cannot create a stack");
-    s->top = NULL;
     return s;
 }
 
 void destroy(Stack s)
 {
-    make_empty(s);
     free(s);
 }
 
@@ -35,23 +31,20 @@ static void terminate(char *message)
 
 bool is_empty(Stack s)
 {
-    return s->top == NULL;
+    return s->top == 0;
 }
 
 bool is_full(Stack s)
 {
-    return false;
+    return s->top == SIZE;
 }
 
 void push(Stack s, int i)
 {
-    struct node *new_node = malloc(sizeof(struct node));
-    if (new_node == NULL)
-        terminate("Cannot push value");
+    if (is_full(s))
+        terminate("Stack is full");
 
-    new_node->data = i;
-    new_node->next = s->top;
-    s->top = new_node;
+    s->contents[s->top++] = i;
 }
 
 int pop(Stack s)
@@ -59,16 +52,10 @@ int pop(Stack s)
     if (is_empty(s))
         terminate("Stack is empty");
 
-    int i = s->top->data;
-    Stack old_node = s->top;
-
-    s->top = s->top->next;
-    free(old_node);
-    return i;
+    return s->contents[--s->top];
 }
 
 void make_empty(Stack s)
 {
-    while (!is_empty(s))
-        pop(s);
+    s->top = 0;
 }
