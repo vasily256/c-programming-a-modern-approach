@@ -8,11 +8,18 @@ char *print_bin2(unsigned int val);
 unsigned int reverse_bits(unsigned int n)
 {
     const int max_bits = sizeof(n) * 8;
-    unsigned int r = 0x0, bit = 0x1;
-    int i;
+    unsigned int r = 0x0, bit, test_bit = 0x1;
+    int i, j;
 
-    for(i = 0; i < max_bits; i++) {
-        r |= (n & bit << i) << max_bits - 2 * i - 1;
+    for (i = 0, j = max_bits - 1; i < max_bits; i++, j--) {
+        bit = n & test_bit << i;
+        bit >>= i;
+        bit <<= j;
+        r |= bit;
+
+        /* Short wariant doesn't woks
+        r |= (n & test_bit << i) << (j - i);
+        */
     }
 
     return r;
