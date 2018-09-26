@@ -7,7 +7,7 @@
 (((red) << 16) + ((green) << 8) + (blue))
 
 int value_control(int value);
-char *print_bin(int val);
+char *print_bits(int val);
 
 int main(void)
 {
@@ -16,20 +16,20 @@ int main(void)
     printf("Enter a value of red (0 - 255): ");
     scanf("%ld", &red);
     red = value_control(red);
-    printf("Red in binare: %s\n", print_bin(red));
+    printf("Red in binare: %s\n", print_bits(red));
 
     printf("Enter a value of green (0 - 255): ");
     scanf("%ld", &green);
     green = value_control(green);
-    printf("Green in binare: %s\n", print_bin(green));
+    printf("Green in binare: %s\n", print_bits(green));
 
     printf("Enter a value of blue (0 - 255): ");
     scanf("%ld", &blue);
     blue = value_control(blue);
-    printf("Blue in binare: %s\n", print_bin(blue));
+    printf("Blue in binare: %s\n", print_bits(blue));
 
     color = MK_COLOR(red,green,blue);
-    printf("Color in binare: %s\n", print_bin(color));
+    printf("Color in binare: %s\n", print_bits(color));
 
     return 0;
 }
@@ -42,7 +42,7 @@ int value_control(int value)
 }
 
 /* Prints binary value */
-char *print_bin(int val)
+char *print_bits(int val)
 {
     int i, j, b[SIZE];
     static char str[SIZE+SIZE/8-1];

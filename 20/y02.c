@@ -2,7 +2,7 @@
 
 #define SIZE 64
 
-char *print_bin(int val);
+char *print_bits(int val);
 
 int main(void)
 {
@@ -11,18 +11,18 @@ int main(void)
     printf("Enter a value: ");
     scanf("%d", &n);
 
-    printf("In binare before toggle: %s\n", print_bin(n));
+    printf("In binare before toggle: %s\n", print_bits(n));
 
     printf("Enter number of bit to be toggled: ");
     scanf("%d", &i);
 
     n ^= 0x1 << i;
-    printf("In binare after toggle:  %s\n", print_bin(n));
+    printf("In binare after toggle:  %s\n", print_bits(n));
 
     return 0;
 }
 
-char *print_bin(int val)
+char *print_bits(int val)
 {
     int i, j, b[SIZE];
     static char str[SIZE+SIZE/8-1];

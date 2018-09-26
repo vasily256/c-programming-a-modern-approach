@@ -2,7 +2,7 @@
 
 #define SIZE 64
 
-char *print_bin(unsigned int val);
+char *print_bits(unsigned int val);
 
 unsigned int f(unsigned int i, int m, int n)
 {
@@ -16,7 +16,7 @@ int main(void)
 
     printf("Enter a value i: ");
     scanf("%u", &i);
-    printf("In binare: %s. In hexadecimal: %x. In decimal: %u\n", print_bin(i), i, i);
+    printf("In binare: %s. In hexadecimal: %x. In decimal: %u\n", print_bits(i), i, i);
 
     printf("Enter a value m: ");
     scanf("%d", &m);
@@ -24,13 +24,13 @@ int main(void)
     scanf("%d", &n);
 
     i = f(i, m, n);
-    printf("In binare: %s. In hexadecimal: %x. In decimal: %u\n", print_bin(i), i, i);
+    printf("In binare: %s. In hexadecimal: %x. In decimal: %u\n", print_bits(i), i, i);
 
     return 0;
 }
 
 /* Prints binary value */
-char *print_bin(unsigned int val)
+char *print_bits(unsigned int val)
 {
     int i, j, b[SIZE];
     static char str[SIZE+SIZE/8-1];

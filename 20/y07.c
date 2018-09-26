@@ -2,7 +2,7 @@
 
 #define SIZE 64
 
-char *print_bin(unsigned int val);
+char *print_bits(unsigned int val);
 
 unsigned int rotate_left(unsigned int i, int n)
 {
@@ -47,23 +47,23 @@ int main(void)
 
     printf("Enter a value: ");
     scanf("%u", &i);
-    printf("In binare: %s. In hexadecimal: %x. In decimal: %u\n", print_bin(i), i, i);
+    printf("In binare: %s. In hexadecimal: %x. In decimal: %u\n", print_bits(i), i, i);
 
     printf("Enter number of places to rotate left: ");
     scanf("%d", &n);
     i = rotate_left(i, n);
-    printf("In binare: %s. In hexadecimal: %x. In decimal: %u\n", print_bin(i), i, i);
+    printf("In binare: %s. In hexadecimal: %x. In decimal: %u\n", print_bits(i), i, i);
 
     printf("Enter number of places to rotate right: ");
     scanf("%d", &n);
     i = rotate_right(i, n);
-    printf("In binare: %s. In hexadecimal: %x. In decimal: %u\n", print_bin(i), i, i);
+    printf("In binare: %s. In hexadecimal: %x. In decimal: %u\n", print_bits(i), i, i);
 
     return 0;
 }
 
 /* Prints binary value */
-char *print_bin(unsigned int val)
+char *print_bits(unsigned int val)
 {
     int i, j, b[SIZE];
     static char str[SIZE+SIZE/8-1];
