@@ -17,7 +17,7 @@ unsigned int reverse_bits(unsigned int n)
         bit <<= j;
         r |= bit;
 
-        /* Short wariant doesn't woks
+        /* Short wariant doesn't woks!
         r |= (n & test_bit << i) << (j - i);
         */
     }
