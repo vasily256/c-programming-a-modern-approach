@@ -1,32 +1,44 @@
 #include <stdio.h>
 
 #define SIZE 64
+#define MAX_VALUE 255
 
 #define MK_COLOR(red,green,blue) \
 (((red) << 16) + ((green) << 8) + (blue))
 
+int value_control(int value);
 char *print_bin(int val);
 
 int main(void)
 {
     unsigned long red, green, blue;
 
-    printf("Enter a value of red: ");
+    printf("Enter a value of red (0 - 255): ");
     scanf("%ld", &red);
+    red = value_control(red);
     printf("Red in binare: %s\n", print_bin(red));
 
-    printf("Enter a value of green: ");
+    printf("Enter a value of green (0 - 255): ");
     scanf("%ld", &green);
+    green = value_control(green);
     printf("Green in binare: %s\n", print_bin(green));
 
-    printf("Enter a value of blue: ");
+    printf("Enter a value of blue (0 - 255): ");
     scanf("%ld", &blue);
+    blue = value_control(blue);
     printf("Blue in binare: %s\n", print_bin(blue));
 
     printf("Color in binare: %s\n",
             print_bin(MK_COLOR(red,green,blue)));
 
     return 0;
+}
+
+int value_control(int value)
+{
+    if (value > MAX_VALUE)
+        return MAX_VALUE;
+    return value;
 }
 
 /* Prints binary value */
