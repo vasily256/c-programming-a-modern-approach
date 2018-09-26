@@ -11,7 +11,7 @@ char *print_bin(int val);
 
 int main(void)
 {
-    unsigned long red, green, blue;
+    unsigned long color, red, green, blue;
 
     printf("Enter a value of red (0 - 255): ");
     scanf("%ld", &red);
@@ -28,8 +28,8 @@ int main(void)
     blue = value_control(blue);
     printf("Blue in binare: %s\n", print_bin(blue));
 
-    printf("Color in binare: %s\n",
-            print_bin(MK_COLOR(red,green,blue)));
+    color = MK_COLOR(red,green,blue);
+    printf("Color in binare: %s\n", print_bin(color));
 
     return 0;
 }
