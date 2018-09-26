@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#define SIZE 64
+
 char *print_bin(int val);
 
 int main(void)
@@ -22,8 +24,8 @@ int main(void)
 
 char *print_bin(int val)
 {
-    int i, b[64];
-    static char str[64];
+    int i, j, b[SIZE];
+    static char str[SIZE+SIZE/8-1];
 
     if (val != 0)
         for (i = 0; val > 0; i++) {
@@ -32,10 +34,17 @@ char *print_bin(int val)
         }
     else
         i = 1;
+    if (i % 8)
+        for (j = i; i - j < 8 - j % 8; i++)
+            b[i] = 0;
 
-    str[i--] = 0;
-    for (int j = 0; i >= 0; i--, j++)
-        str[j] = b[i] + '0';
+    for (i--, j = 0; i >= 0; ) {
+        if (!(j % 9))
+            str[j++] = ' ';
+        str[j++] = b[i--] + '0';
+
+    } 
+    str[j] = '\0';
 
     return str;
 }
