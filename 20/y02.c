@@ -22,29 +22,32 @@ int main(void)
     return 0;
 }
 
+/* Prints bits of binary value */
 char *print_bits(int val)
 {
-    int i, j, b[SIZE];
-    static char str[SIZE+SIZE/8-1];
+    int i, j, k, b[SIZE];
+    static char str[SIZE+SIZE/8];
 
-    if (val != 0)
+    if (val > 0)
         for (i = 0; val > 0; i++) {
             b[i] = val & 0x1;
             val >>= 1;
         }
     else
         i = 1;
-    if (i % 8)
-        for (j = i; i - j < 8 - j % 8; i++)
+
+    if (i % 8) {
+        for (j = i; i - j < 8 - j % 8; i++) {
             b[i] = 0;
+        }
+    }
 
-    for (i--, j = 0; i >= 0; ) {
-        if (!(j % 9))
-            str[j++] = ' ';
-        str[j++] = b[i--] + '0';
-
-    } 
-    str[j] = '\0';
+    for (j = i - 1, i = 0, k = 1; j >= 0; ) {
+        str[i++] = b[j--] + '0';
+        if (!(k++ % 8))
+            str[i++] = ' ';
+    }
+    str[--i] = '\0';
 
     return str;
 }
